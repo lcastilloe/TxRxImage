@@ -1,0 +1,3 @@
+Total de bits comparados: 0
+Errores detectados: 0
+BER: NaN
