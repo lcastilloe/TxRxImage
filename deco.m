@@ -71,83 +71,63 @@ end
 
 fclose(fileID);
 
+%% Organizar el txt en 101 filas
 
+% 1. Leer el archivo con una sola línea
+input_filename = 'borrar.txt'; % Archivo con una sola línea larga
+fileID = fopen(input_filename, 'r');
+linea_unica = fgetl(fileID); % Leer la única línea del archivo
+fclose(fileID);
+
+% 2. Verificar que la longitud sea 78,780 caracteres
+if length(linea_unica) ~= 78780
+    error('La longitud de la línea no es la esperada (78,780 caracteres). Tiene %d caracteres.', length(linea_unica));
+end
+
+% 3. Dividir la línea en 101 filas de 780 caracteres
+lineas = reshape(linea_unica, 780, [])'; % Crear una matriz donde cada fila tiene 780 caracteres
+
+% 4. Guardar las líneas formateadas en un nuevo archivo
+output_filename = 'borrar_formateado.txt'; % Nombre del archivo de salida
+fileID = fopen(output_filename, 'w');
+for i = 1:size(lineas, 1)
+    fprintf(fileID, '%s\n', lineas(i, :));
+end
+fclose(fileID);
+
+disp(['✅ Archivo organizado y guardado como "', output_filename, '".']);
 
 %% Decodificar la trama y recostruir la imagen
 
-% === Parámetros conocidos ===
-rows = 41;
-cols = 80;
-bits_por_pixel = 8;
-total_pixels = rows * cols;
-total_bits = total_pixels * bits_por_pixel; % 26240
-
-% === Leer el archivo de texto ===
-filename = 'borrar.txt';  % Cambia si es necesario
-fid = fopen(filename, 'r');
-if fid == -1
-    error('No se pudo abrir el archivo %s', filename);
-end
-
-lineas = textscan(fid, '%s', 'Delimiter', '\n');
-fclose(fid);
+% 1. Leer el archivo con los bits
+fileID = fopen('borrar_formateado.txt', 'r');
+lineas = textscan(fileID, '%s');
+fclose(fileID);
 lineas = lineas{1};
 
-% === Unir todas las líneas en una sola cadena ===
-cadena_completa = strjoin(lineas, '');  % Unir las líneas eliminando saltos de línea
+% 2. Unir todas las líneas en una sola cadena
+cadena_bits = strjoin(lineas, '');
 
-% === Validación del tamaño ===
-if length(cadena_completa) ~= 78780
-    error('La cadena no tiene 26462 caracteres. Tiene %d.', length(cadena_completa));
-end
+% 3. Remover los 30 caracteres 'a' al inicio y los 30 'b' al final
+cadena_bits = cadena_bits(31:end-30);
 
-% === Eliminar los 111 'a' del inicio y 111 'b' del final ===
-cadena_bits_puros = cadena_completa(31:end-30); % del carácter 112 al 26351
+% 4. Convertir la cadena de caracteres a un vector de bits
+bits = cadena_bits - '0'; % Convierte '0' y '1' a 0 y 1
 
-% === Filtrar caracteres no deseados (solo '0' y '1') ===
-cadena_bits_puros = cadena_bits_puros(cadena_bits_puros == '0' | cadena_bits_puros == '1');
+% 5. Reconstruir la imagen desde los bits
+bits_per_pixel = 8; % 8 bits por canal de color
+rows = 41; % Alto de la imagen
+cols = 80; % Ancho de la imagen
+channels = 3; % Número de canales (RGB)
 
-% === Verificar que la cantidad de bits sea 26240 ===
-if length(cadena_bits_puros) ~= total_bits
-    % Si hay más o menos bits, rellenamos con '0' o '1'
-    faltantes = total_bits - length(cadena_bits_puros);
-    if faltantes > 0
-        % Si faltan bits, agregamos ceros (puedes cambiarlo a '1' si prefieres)
-        cadena_bits_puros = [cadena_bits_puros, repmat('0', 1, faltantes)];
-    elseif faltantes < 0
-        % Si sobran bits, cortamos el exceso (esto no debería ocurrir si todo está correcto)
-        cadena_bits_puros = cadena_bits_puros(1:total_bits);
-    end
-end
+% Convertir los bits en valores de píxeles
+img_reconstruida = uint8(reshape(bi2de(reshape(bits, bits_per_pixel, []).', 'left-msb'), rows, cols, channels));
 
-% === Convertir a vector binario numérico ===
-bit_vector = double(cadena_bits_puros) - double('0');  % Convertimos '0' a 0 y '1' a 1
-
-% === Verificar que solo haya 0 y 1 ===
-valores_unicos = unique(bit_vector);
-if ~all(ismember(valores_unicos, [0 1]))
-    error('Se encontraron caracteres distintos de 0 y 1.');
-end
-
-% === Reconstrucción de la imagen ===
-bits_reshape = reshape(bit_vector, [], bits_por_pixel);
-pixel_vals = bi2de(bits_reshape, 'left-msb');
-img_reconstruida = reshape(pixel_vals, [rows, cols]);
-
-% === Mostrar la imagen ===
+% 6. Mostrar la imagen reconstruida
 figure;
-imshow(img_reconstruida, []);
-title('Imagen Reconstruida desde archivo con 101 líneas');
+imshow(img_reconstruida);
+title('Imagen Reconstruida desde el Archivo de Texto');
 
-disp('✅ Imagen reconstruida correctamente desde el archivo .txt');
-
-% === Escalar la imagen reconstruida (por ejemplo, 5 veces más grande) ===
-factor_escala = 5;  % Puedes cambiar este valor (ej. 2, 3, 4, etc.)
-img_reconstruida_grande = imresize(img_reconstruida, factor_escala, 'nearest');
-
-% === Mostrar la imagen escalada ===
-figure;
-imshow(img_reconstruida_grande, []);
-title('Imagen Reconstruida y Ampliada');
-
-disp('✅ Imagen reconstruida y ampliada correctamente.');
+% 7. Guardar la imagen reconstruida
+imwrite(img_reconstruida, 'imagen_reconstruida.png');
+disp('✅ Imagen reconstruida y guardada como imagen_reconstruida.png');
