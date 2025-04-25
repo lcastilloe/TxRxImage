@@ -1,0 +1,104 @@
+function SimParams = sdruQPSKReceiverSLInit(platform,useCodegen,isHDLcompatible)
+%   Adaptado para leer mensajes desde archivo txt
+%   Copyright 2023 The MathWorks, Inc.
+
+%% General simulation parameters
+if isHDLcompatible
+    SimParams.Rsym = 0.5e6;
+    SimParams.CFCAlgorithm = 'Correlation-Based';
+else
+    if useCodegen
+        SimParams.Rsym = 5e6;
+        SimParams.CFCAlgorithm = 'FFT-Based';
+    else
+        SimParams.Rsym = 2.5e6;
+        SimParams.CFCAlgorithm = 'FFT-Based';
+    end
+end
+
+SimParams.ModulationOrder = 4;
+SimParams.Interpolation = 2;
+SimParams.Decimation = 1;
+SimParams.Tsym = 1/SimParams.Rsym;
+SimParams.Fs   = SimParams.Rsym * SimParams.Interpolation;
+
+%% Frame Specifications
+SimParams.BarkerCode   = [+1 +1 +1 +1 +1 -1 -1 +1 +1 -1 +1 -1 +1];
+SimParams.BarkerLength = length(SimParams.BarkerCode);
+SimParams.HeaderLength = SimParams.BarkerLength * 2;
+
+% === Cargar los mensajes desde archivo ===
+filename = 'imagen_color_bits_formato_101_lineas.txt'; % Asegúrate de tener el archivo con 100 líneas
+fid = fopen(filename, 'r');
+if fid == -1
+    error('No se pudo abrir el archivo %s', filename);
+end
+
+lines = textscan(fid, '%s', 'Delimiter', '\n');
+fclose(fid);
+mensajes = lines{1};
+
+% Concatenar mensajes en un solo string
+msgChars = char(join(mensajes, ''));  % los convierte en una sola cadena
+asciiVals = double(msgChars);         % convierte cada carácter en su valor ASCII
+bits = de2bi(asciiVals, 7, 'left-msb')'; % convierte ASCII a bits (7 bits por carácter)
+SimParams.MessageBits = bits(:);      % vector columna con todos los bits
+
+% Actualizar parámetros en base al archivo
+SimParams.NumberOfMessage = numel(mensajes);
+SimParams.MessageLength   = round(length(msgChars) / SimParams.NumberOfMessage); % caracteres por línea
+SimParams.PayloadLength   = length(SimParams.MessageBits);
+SimParams.FrameSize       = (SimParams.HeaderLength + SimParams.PayloadLength) / log2(SimParams.ModulationOrder);
+SimParams.FrameTime       = SimParams.Tsym * SimParams.FrameSize;
+
+%% BER calculation masks
+SimParams.BerMask = zeros(SimParams.NumberOfMessage * SimParams.MessageLength * 7, 1);
+for i = 1 : SimParams.NumberOfMessage
+    SimParams.BerMask((i-1) * SimParams.MessageLength * 7 + (1:SimParams.MessageLength * 7)) = ...
+        (i-1) * SimParams.MessageLength * 7 + (1:SimParams.MessageLength * 7);
+end
+
+%% Rx parameters
+SimParams.RolloffFactor     = 0.5;
+SimParams.ScramblerBase     = 2;
+SimParams.ScramblerPolynomial        = [1 1 1 0 1];
+SimParams.ScramblerInitialConditions = [0 0 0 0];
+SimParams.RaisedCosineFilterSpan    = 10;
+SimParams.DesiredPower              = 2;
+SimParams.AveragingLength           = 50;
+SimParams.MaxPowerGain              = 60;
+SimParams.MaximumFrequencyOffset    = 6e3;
+
+K = 1;
+A = 1/sqrt(2);
+SimParams.PhaseRecoveryLoopBandwidth  = 0.01;
+SimParams.PhaseRecoveryDampingFactor  = 1;
+SimParams.TimingRecoveryLoopBandwidth = 0.01;
+SimParams.TimingRecoveryDampingFactor = 1;
+SimParams.TimingErrorDetectorGain     = 2.7*2*K*A^2 + 2.7*2*K*A^2;
+SimParams.PreambleDetectorThreshold   = 0.8;
+
+%% USRP receiver parameters
+switch platform
+    case {'B200','B210'}
+        SimParams.MasterClockRate = 20e6;
+    case {'X300','X310'}
+        SimParams.MasterClockRate = 200e6;
+    case {'N200/N210/USRP2'}
+        SimParams.MasterClockRate = 100e6;
+    case {'N300','N310'}
+        SimParams.MasterClockRate = 125e6;
+    case {'N320/N321'}
+        SimParams.MasterClockRate = 200e6;
+    otherwise
+        error(message('sdru:examples:UnsupportedPlatform', platform))
+end
+
+SimParams.USRPCenterFrequency        = 915e6;
+SimParams.USRPGain                   = 35;
+SimParams.USRPFrontEndSampleRate     = SimParams.Rsym * 2;
+SimParams.USRPDecimationFactor       = SimParams.MasterClockRate / SimParams.USRPFrontEndSampleRate;
+SimParams.USRPFrameLength            = SimParams.Interpolation * SimParams.FrameSize;
+
+SimParams.USRPFrameTime = SimParams.USRPFrameLength / SimParams.USRPFrontEndSampleRate;
+SimParams.StopTime      = 10;

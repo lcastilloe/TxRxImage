@@ -1,0 +1,443 @@
+<?xml version="1.0"?>
+<demos>
+  <demoitem>
+    <source>GetInformationForUSRPRadioWithSpecifiedSerialNumberExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex08886501</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>ConfigureSDRuReceiverAndCaptureDataExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex11478489</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>GetTheUHDDriverVersionNumberExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex11778636</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>GetStatusOfConnectedUSRPRadiosExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex12367571</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>DetectSDRuTransmitterSystemObjectUnderrunsExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex13177397</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>FMCWRadarWaveformBasedRangeCalculationUsingTimeTriggerExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex14275432</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <product>phased</product>
+    <product>radar</product>
+  </demoitem>
+  <demoitem>
+    <source>GetStatusOfSpecifiedUSRPRadioExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex18570145</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>FMSpectrumAnalysisAndDemodulationWithUSRPRadioExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex24151817</metadata>
+    <thumbnail>html/FMSpectrumAnalysisAndDemodulationWithUSRPRadioExample_01.png</thumbnail>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>ReportInformationOfTheUSRPRadioExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex28222911</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>FrequencyOffsetCalibrationTransmitterUSRPHardwareExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex29631346</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <product>niusrp</product>
+    <file component="usrpradio" timestamp="1652793146">configureFreqCalibTx.m</file>
+    <file component="usrpradio" timestamp="1655391094">sdrufreqcalib.slx</file>
+  </demoitem>
+  <demoitem>
+    <source>ConfigureUSRPForGPSDOTimingAndSynchronizationExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex29782711</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>AlamoutiCodingBasedMIMOReceiverUsingUSRPRadioExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex29910408</metadata>
+    <thumbnail>html/AlamoutiCodingBasedMIMOReceiverUsingUSRPRadioExample_01.png</thumbnail>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <product>niusrp</product>
+    <file component="usrpradio" timestamp="1721422969">sdruOSTBCInitGoldSeq.m</file>
+    <file component="usrpradio" timestamp="1721422969">sdruOSTBCReceiverInit.m</file>
+    <file component="usrpradio" timestamp="1721422969">sdruOSTBCChannelEstimation.m</file>
+    <file component="usrpradio" timestamp="1721422969">sdruOSTBCOffsetCorrection.m</file>
+  </demoitem>
+  <demoitem>
+    <source>GetRadioInformationForMultiChannelRadioExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex30124751</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>GetUSRPRadioTimeExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex34303294</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>PerformSISOOperationsWithSDRuSystemObjectsExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex35149690</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>BurstModeBufferingAtTransmitterExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex35501945</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>TransmitSignalAtGPSTriggerTimeUsingSDRUTransmitterExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex39166699</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>TransmitSignalsWithB200AndSDRuTxSystemObjectExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex39799187</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>FrequencyOffsetCalibrationReceiverUSRPHardwareExample</source>
+    <type>M-file</type>
+    <extension>m</extension>
+    <metadata>ex40591049</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <product>niusrp</product>
+    <file component="usrpradio" timestamp="1699885282">configureFreqCalibRx.m</file>
+  </demoitem>
+  <demoitem>
+    <source>ReceiveSignalsWithUSRPB210AndSDRuReceiverSystemObjectExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex42224833</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>GetTimeStampsOfReceivedSignalUsingSDRuReceiverExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex44586757</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>FrequencyOffsetCalibrationUSRPHardwareSimulinkExample</source>
+    <type>M-file</type>
+    <extension>m</extension>
+    <metadata>ex45171453</metadata>
+    <thumbnail>data/sdrufreqcalibspectrum.png</thumbnail>
+    <sandboxPublished/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <product>simulink</product>
+    <product>niusrp</product>
+    <file component="usrpradio" timestamp="1699886982">sdrufreqcalib.slx</file>
+    <file component="usrpradio" timestamp="1699886982">sdrufreqcalib_rx.slx</file>
+    <file component="usrpradio" timestamp="1699886982">sdrufreqcalibspectrum.png</file>
+    <file component="usrpradio" timestamp="1639604007">sdruExampleFindRadio.m</file>
+    <file component="usrpradio" timestamp="1652793146">configureFreqCalibRx.m</file>
+    <file component="usrpradio" timestamp="1652793146">configureFreqCalibTx.m</file>
+    <file component="usrpradio" timestamp="1639604007">sdruExampleSetAvailableRadio.m</file>
+  </demoitem>
+  <demoitem>
+    <source>GetUSRPB200RadioInformationExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex47772797</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>LoadDefaultFPGAImageToUSRPN200Example</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex51565134</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>ReportStatusForAllUSRPRadiosConnectedToHostComputerExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex60176328</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>CaptureWLANSignalsUsingUSRPRadioHardwareExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex60813504</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>DetectSDRuReceiverSystemObjectOverrunsExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex63957734</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>GetInformationAboutUSRPRadioWithSpecifiedIPAddressExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex64775206</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>MIMOCableSynchronizationUsingN2xxRadiosExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex65590605</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <file component="usrpradio" timestamp="1720543525">transmitter_mimo.m</file>
+  </demoitem>
+  <demoitem>
+    <source>BurstModeBufferingAtReceiverExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex66315304</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>TransmissionOverMultipleChannelsWithSDRuSystemObjectExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex70215744</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>ReceptionOnMultipleChannelsWithSDRuSystemObjectExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex71143073</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>QPSKTransmitterWithUSRPHardwareInSimulinkExample</source>
+    <type>model</type>
+    <extension>m</extension>
+    <file>html/QPSKTransmitterWithUSRPHardwareInSimulinkExample.html</file>
+    <metadata>ex74107861</metadata>
+    <thumbnail>html/QPSKTransmitterWithUSRPHardwareInSimulinkExample_01.png</thumbnail>
+    <sandboxPublished/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <product>simulink</product>
+    <product>niusrp</product>
+    <file component="usrpradio" timestamp="1639604007">sdruExampleFindRadio.m</file>
+    <file component="usrpradio" timestamp="1639604007">sdruExampleSetAvailableRadio.m</file>
+    <file component="usrpradio" open="open" timestamp="1674485553">sdruqpsktx.slx</file>
+    <file component="usrpradio" timestamp="1705405019">sdruQPSKTransmitterSLInit.m</file>
+  </demoitem>
+  <demoitem>
+    <source>CaptureAndSaveReceiveSignalsToBasebandFileWriterExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex81165366</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>SetNewIPAddressOfUSRPRadioExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex81837613</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+  </demoitem>
+  <demoitem>
+    <source>QPSKReceiverWithUSRPHardwareInSimulinkExample</source>
+    <type>model</type>
+    <extension>m</extension>
+    <file>html/QPSKReceiverWithUSRPHardwareInSimulinkExample.html</file>
+    <metadata>ex86213561</metadata>
+    <thumbnail>html/QPSKReceiverWithUSRPHardwareInSimulinkExample_01.png</thumbnail>
+    <sandboxPublished/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <product>simulink</product>
+    <product>niusrp</product>
+    <file component="usrpradio" timestamp="1639499670">sdruExampleFindRadio.m</file>
+    <file component="usrpradio" timestamp="1639499670">sdruExampleSetAvailableRadio.m</file>
+    <file component="usrpradio" open="open" timestamp="1705666481">sdruqpskrx.slx</file>
+    <file component="usrpradio" timestamp="1705406714">sdruQPSKReceiverSLInit.m</file>
+    <file component="repository/spc" timestamp="1705666481">FrameSynchronizer.m</file>
+  </demoitem>
+  <demoitem>
+    <source>QPSKTransmitterWithUSRPHardwareExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex86687629</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <file component="usrpradio" timestamp="1690489182">runSDRuQPSKTransmitter.m</file>
+    <file component="usrpradio" timestamp="1690489182">sdruqpsktransmitter_init.m</file>
+  </demoitem>
+  <demoitem>
+    <source>ReceivePhaseSynchronizedSignalsUsingTwinRXDaughterboardExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex89999999</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <product>niusrp</product>
+    <file component="usrpradio" timestamp="1720562739">transmitter_twinrx.m</file>
+  </demoitem>
+  <demoitem>
+    <source>QPSKReceiverWithUSRPHardwareExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex93032609</metadata>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <product>niusrp</product>
+    <file component="usrpradio" timestamp="1690478677">runSDRuQPSKReceiver.m</file>
+    <file component="usrpradio" timestamp="1690478677">sdruqpskreceiver_init.m</file>
+    <file component="usrpradio" timestamp="1690478677">QPSKDataDecoder.m</file>
+    <file component="usrpradio" timestamp="1705422016">QPSKReceiver.m</file>
+    <file component="repository/spc" timestamp="1705667525">FrameSynchronizer.m</file>
+  </demoitem>
+  <demoitem>
+    <source>DirectionOfArrivalEstimationUsingTwinRXExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex97267284</metadata>
+    <thumbnail>html/DirectionOfArrivalEstimationUsingTwinRXExample_04.png</thumbnail>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <product>niusrp</product>
+    <product>comm</product>
+    <product>phased</product>
+    <file component="usrpradio" timestamp="1703077714">sdruDOAEstimationAmplitudeNormalization.m</file>
+    <file component="usrpradio" timestamp="1702906288">sdruDOAEstimationApp.mlapp</file>
+    <file component="usrpradio" timestamp="1703077714">sdruDOAEstimationFindPhaseDifference.m</file>
+    <file component="usrpradio" timestamp="1703077714">sdruDOAEstimationRotateIQ4Channels.m</file>
+    <file component="usrpradio" timestamp="1703077714">sdruDOAEstimationRotateIQData.m</file>
+    <file component="usrpradio" timestamp="1703077714">sdruDOAEstimationReceiver_init.m</file>
+    <file component="usrpradio" timestamp="1713372163">sdruDOAExampleTransmitter.mlx</file>
+    <file component="usrpradio" timestamp="1703077714">sdruDOAPhaseCalibration.m</file>
+  </demoitem>
+  <demoitem>
+    <source>AlamoutiCodingBasedMIMOTransmitterUsingUSRPRadioExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex97548541</metadata>
+    <thumbnail>html/AlamoutiCodingBasedMIMOTransmitterUsingUSRPRadioExample_01.png</thumbnail>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>usrpradio</product>
+    <product>niusrp</product>
+    <file component="usrpradio" timestamp="1721417468">sdruOSTBCInitGoldSeq.m</file>
+    <file component="usrpradio" timestamp="1721417468">sdruOSTBCTransmitterInit.m</file>
+  </demoitem>
+</demos>
